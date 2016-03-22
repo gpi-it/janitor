@@ -1,0 +1,60 @@
+.menuD{
+position:fixed;
+top: 0px;
+width: 100%;
+background-color: #FFD300;;
+}
+
+.footerD{
+  position:fixed;
+  bottom: 0px;
+  width: 100%;
+  padding-top: 15px;
+  background-color: #FFD300;
+}
+
+.menuD .button{
+  margin: 0px;
+}
+
+.margin-top{
+  margin-top: 100px;
+}
+
+.margin-bottom{
+  margin-bottom: 150px;
+}
+
+.item{
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.item-nest{
+  background-color: WhiteSmoke;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.item-nest-nest{
+  background-color: Gainsboro;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+body{
+  background-color: SkyBlue;
+}
+
+label{
+   text-transform: uppercase;
+}
+
+.button{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.row{
+  max-width: none;
+}

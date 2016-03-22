@@ -1,0 +1,27 @@
+.left{
+  background-color: yellow;
+}
+
+.right{
+  background-color: green;
+}
+
+.dropHeader{
+    background-color: blue;
+}
+
+.dropContent{
+    background-color: lightblue;
+}
+/*
+.background{
+  background-color: #2199e8
+}
+
+#nameBox, #address, #contact, #additionalInfo, #product, .activities, .linking, #timeset, .openinghours, .menu, .search, .data_intro{
+
+  background: #2199e8;
+  padding: 10px 30px 10px 30px;
+    margin: 5px;
+}
+*/

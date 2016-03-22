@@ -1,0 +1,407 @@
+<div class="row">
+  <div class="small-12 medium-6 large-4 columns">
+    <!-- Newly Added Part -->
+
+      <div class="menuD row">
+              <div class="columns button medium" value='' ng-click="goBack()"><i class="fa fa-chevron-left fa-lg"></i> Go back</div>
+              <div class="columns">
+                <h4 style="color:white;"><strong>{{hello.name}}</strong></h4>
+              </div>
+              <div class="button medium right columns" ng-click="readOnly = !readOnly">{{ readOnly == true ? 'Edit' : 'Exit Editing' }}<i class="fa fa-times"></i></div>
+      </div>
+
+      <div class="row margin-top">
+        <div class="columns">
+          <div id="nameBox" class="item">
+            <label><strong>Kind of Place</strong>
+              <select class="kindOfPlace" ng-model='hello.kindOfPlace' ng-disabled='readOnly'>
+                <option value="farm">Farm</option>
+                <option value="deliverypoint">Deliverypoint</option>
+                <option value="market">Market</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="shop">Shop</option>
+              </select>
+            </label>
+            <label><strong>Category</strong>
+              <select id="category" ng-model="hello.category" ng-disabled='readOnly'>
+                <option value=""></option>
+                <option value="inTransition">In Transition</option>
+                <option value="organic">Organic</option>
+                <option value="organic+">Organic+</option>
+              </select>
+            </label>
+            <label><strong>Name of the Farm</strong>
+              <input type="text" id="name" ng-model="hello.name" ng-disabled='readOnly'>
+            </label>
+            <label><strong>Name of the Owner</strong>
+              <input type="text" id="employee" ng-model="hello.employee" ng-disabled='readOnly'>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- end name -->
+
+      <!-- start address -->
+      <div class="row">
+        <div class="columns">
+          <div id="address" class="item">
+            <h4 ng-click="sections[0]=!sections[0]"><strong>Address</strong></h4>
+            <div ng-show="sections[0]">
+              <label><strong>Street</strong>
+                <input type="text" id="streetAddress" ng-model="hello.address.streetAddress">
+              </label>
+
+              <label><strong>PostalCode</strong>
+                <input type="text" id="postalCode" ng-model="hello.address.postalCode">
+              </label>
+
+              <label><strong>City</strong>
+                <input type="text" id="addressLocality" ng-model="hello.address.addressLocality">
+              </label>
+
+              <label><strong>Country</strong>
+                <input type="text" id="addressCountry" ng-model="hello.address.addressCountry">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end address -->
+
+      <!-- start contact -->
+      <div class="row">
+        <div class="columns">
+
+          <div id="contact" class="item">
+            <h4 ng-click="sections[1]=!sections[1]"><strong>Contact</strong></h4>
+            <div ng-show="sections[1]">
+            <div class=phone>
+              <label><strong>Telephone</strong>
+
+                <div class="input-group" ng-repeat="phone in hello.telephone track by $index">
+                  <input class="input-group-field telephone" type="text" ng-model='hello.telephone[$index].tel' ng-readonly='readOnly'>
+                  <div class="input-group-button">
+                    <a class="button remove removePhone" ng-click='remove("telephone", $index)' ng-readonly='readOnly'><i class="fa fa-times"></i></a>
+                  </div>
+                </div>
+
+                <a class="expanded button medium remove removePhone" id="addPhone" ng-click='add("telephone")' ng-disabled='readOnly'>Add Phone</a>
+              </label>
+            </div>
+
+            <label><strong>Email</strong>
+              <input type="email" id="email" ng-model="hello.email" ng-readonly='readOnly'>
+            </label>
+            <label><strong>Url</strong>
+              <input type="url" id="url" ng-model="hello.url" ng-readonly='readOnly'>
+            </label>
+            <label><strong>Twitter</strong>
+              <input type="url" id="twitter" ng-model="hello.twitter" ng-readonly='readOnly'>
+            </label>
+            <label><strong>Facebook Page</strong>
+              <input type="url" id="facebook" ng-model="hello.facebook" ng-readonly='readOnly'>
+            </label>
+            <label><strong>Instagram</strong>
+              <input type="url" id="instagram" ng-model="hello.instagram" ng-readonly='readOnly'>
+            </label>
+            <label><strong>Telegram</strong>
+              <input type="url" id="telegram" ng-model="hello.telegram" ng-readonly='readOnly'>
+            </label>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- end contact -->
+
+      <!-- start description -->
+      <div class="row">
+        <div class="columns">
+          <div id="additionalInfo" class="item">
+            <h4 ng-click="sections[2]=!sections[2]"><strong>Additional Information</strong></h4>
+            <div ng-show="sections[2]">
+
+            <!---
+        <label>For Restaurants: ServesCuisine</label>
+        <br>
+        <input type="checkbox" name="flexitarian" class="servesCuisine" id="flexitarian" value="flexitarian">
+        <label class="checkb">Flexitarian</label>
+        <br>
+        <input type="checkbox" name="vegetarian" class="servesCuisine" id="vegetarian" value="vegetarian">
+        <label class="checkb">Vegetarian</label>
+        <br>
+        <input type="checkbox" name="vegan" class="servesCuisine" id="vegan" value="vegan">
+        <label class="checkb">Vegan</label>
+
+        --->
+
+            <label><strong>Description</strong>
+              <input type="text" id="description" ng-model="hello.description" ng-readonly='readOnly'>
+            </label>
+
+            <label><strong>BiomijnnatuurID</strong>
+              <input type="text" id="biomijnnatuurID" ng-model="hello.biomijnnatuurID" readonly="true">
+            </label>
+          </div>
+        </div>
+
+        </div>
+      </div>
+      <!-- end description -->
+
+      <!-- start product -->
+      <div class="row">
+        <div class="columns">
+          <div id="product" class="item">
+            <h4 ng-click="sections[3]=!sections[3]"><strong>Products</strong></h4>
+            <div ng-show="sections[3]">
+              <div class="row">
+                <div class="column">
+                  <input type="checkbox" name="bread" id="bread" value="bread" ng-model="hello.product.bread">
+                  <label class="checkb">Bread</label>
+                </div>
+                <div class="column">
+                  <input type="checkbox" name="dairy" id="dairy" value="dairy" ng-model="hello.product.dairy">
+                  <label class="checkb">Dairy</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <input type="checkbox" name="drinks" id="drinks" value="drinks" ng-model="hello.product.drinks">
+                  <label class="checkb">Drinks</label>
+                </div>
+                <div class="column">
+                  <input type="checkbox" name="eggs" id="eggs" value="eggs" ng-model="hello.product.eggs">
+                  <label class="checkb">Eggs</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <input type="checkbox" name="fruit" id="fruit" value="fruit" ng-model="hello.product.fruit">
+                  <label class="checkb">Fruit</label>
+                </div>
+                <div class="column">
+                  <input type="checkbox" name="meat" id="meat" value="meat" ng-model="hello.product.meat">
+                  <label class="checkb">Meat</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <input type="checkbox" name="vegetables" id="vegetables" value="vegetables" ng-model="hello.product.vegetables">
+                  <label class="checkb">Vegetables</label>
+                </div>
+              </div>
+          </div>
+          </div>
+
+          <div class="hasOfferCatalog activities item">
+              <h4 ng-click="sections[4]=!sections[4]"><strong>Activities</strong></h4>
+              <div ng-show="sections[4]">
+                <div class="row">
+                  <div class="column">
+            <input type="checkbox" name="CSA" id="CSA" value="CSA" ng-model="hello.hasOfferCatalog.CSA">
+            <label class="checkb">CSA</label>
+          </div>
+          <div class="column">
+            <input type="checkbox" name="education" id="education" value="education" ng-model="hello.hasOfferCatalog.education">
+            <label class="checkb">Education</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <input type="checkbox" name="shelteredEmployment" id="shelteredEmployment" value="shelteredEmployment" ng-model="hello.hasOfferCatalog.shelteredEmployment">
+            <label class="checkb">Sheltered employment</label>
+          </div>
+          <div class="column">
+            <input type="checkbox" name="tourism" id="tourism" value="tourism" ng-model="hello.hasOfferCatalog.tourism">
+            <label class="checkb">Tourism</label>
+          </div>
+        </div>
+          </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end product -->
+
+
+
+      <!-- start POS -->
+      <div class="row">
+        <div class="columns">
+          <div class="hasPOS linking item">
+            <h4 ng-click="sections[5]=!sections[5]"><strong>Farm delivering to markets, shops or delivery points</strong></h4>
+            <div ng-show="sections[5]">
+            <label><strong>Food points</strong></label>
+              <div class="food_points" ng-repeat="fp in hello.hasPOS.food_points track by $index">
+
+                <div class="input-group">
+                  <input class="input-group-field food_points inputfp" type="text" ng-model="fp.name" readonly="true">
+                  <div class="input-group-button">
+                    <a class="button remove removefood_points" ng-click='removePOS($index)' ng-disabled='readOnly'>X</a>
+                  </div>
+                </div>
+            </div>
+                    <strong><h4>Search</h4></strong>
+              <div class="input-group">
+                  <input class="input-group-field search" type="text" ng-model="searchNameIDString" ng-change="searchNameID()" ng-readonly='readOnly'>
+                      <div class="input-group-button">
+                        <a class="button" id="addFood_points" value='' ng-disabled='readOnly'><i class="fa fa-search"></i></a>
+                    </div>
+                </div>
+
+            <h4><strong>Results</strong></h4>
+            <div id="res">
+              <div class="food_points" ng-repeat="item in searchNameIDItems track by $index">
+                <div class="input-group">
+                  <!--
+    <input class="input-group-field" type="text" ng-model="item.name" readonly="true">
+                -->
+
+                  <div class="input-group-field" type="text" ng-model="item.name" readonly="true">{{item.name}} (_id= {{item._id}}, bioID = {{item.biomijnnatuurID}})<br>{{item.address.streetAddress}}<br>{{item.address.postalCode}} {{item.address.addressLocality}}</div>
+                  <div class="input-group-button">
+                    <a class="button" ng-click='addPOS(item.name, item._id)'>Add</a>
+                  </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="description">
+              <label>Description
+                <textarea type="textarea" rows="1" id="fp_description" ng-model="hello.hasPOS.description" ng-readonly='readOnly'></textarea>
+              </label>
+            </div>
+
+            <div class="description2">
+              <label>Description2
+                <textarea type="textarea" rows="1" id="fp_description2" ng-model="hello.hasPOS.description2" ng-readonly='readOnly'></textarea>
+              </label>
+            </div>
+    </div>
+          </div>
+        </div>
+      </div>
+      <!-- end POS -->
+
+      <!-- start openinghours -->
+      <div class="row">
+        <div class="columns">
+          <div id=timeset class="item">
+            <h4 ng-click="sections[6]=!sections[6]"><strong>Opening hours</strong></h4>
+            <div ng-show="sections[6]">
+            <div class="item-nest" ng-repeat="ohs in hello.openingHoursSpecification" ng-init="seasonsIndex=$index">
+              <div class="season">
+                <label><strong>Season</strong></label>
+                <p>Valid from ... to .... (Put 1/1 - 31/12 for full year.)</p>
+
+                <div class="input-group">
+                  <input type='text' class='input-group-field dpd1' value='' readonly ng-model="hello.openingHoursSpecification[$index].validFrom">
+                  <span class="input-group-label">to</span>
+                  <input type='text' class='input-group-field dpd2' value='' readonly ng-model="hello.openingHoursSpecification[$index].validThrough">
+                </div>
+              </div>
+              <label><strong>Days Opening</strong></label>
+              <div class="day item-nest-nest" ng-repeat="ohd in hello.openingHoursSpecification[seasonsIndex].datetime" ng-init="daysIndex=$index">
+                <div class="time">
+                    <label><strong>Opening hours</strong></label>
+                      <p>If there's a break at lunch, use the ADD TIME button to add the afternoon timing. Eg. 10:00 - 12:00 and 14:00 - 17:00</p>
+                      <div class="input-group" ng-repeat="ohst in hello.openingHoursSpecification[seasonsIndex].datetime[daysIndex]">
+                        <div class="row">
+                          <div class="columns">
+                            <div class="row">
+                              <div class="columns">
+                                <input type='datetime' class='input-group-field opens timeP dpt1' value='' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[daysIndex].timings[$index].opens">
+                              </div>
+
+                              <div class="columns" style="text-align: center">
+                                <label>to</label>
+                              </div>
+
+                              <div class="columns">
+                                <input type='datetime' class='input-group-field opens timeP dpt2' value='' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[daysIndex].timings[$index].closes">
+                              </div>
+
+                              <div class="columns">
+                                <a class="button expanded medium input-group-field remove removeTime" type="button" ng-click='removeTiming($parent.$index, $index)'><i class="fa fa-times"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="button expanded medium addTime" type="button" id="addElement" ng-click='addTiming($index)'>Add Time</a>
+                </div>
+                <label><strong>Valid on</strong></label>
+                <div class="row">
+                  <div class="column">
+                    <input type='checkbox' name='mon' class='mon' value='Monday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.monday">
+                    <label class='checkb'>Monday</label>
+                  </div>
+                  <div class="column">
+                    <input type='checkbox' name='tue' class='tue' value='Tuesday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.tuesday">
+                    <label class='checkb'>Tuesday</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    <input type='checkbox' name='wed' class='wed' value='Wednesday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.wednesday">
+                    <label class='checkb'>Wednesday</label>
+                  </div>
+                  <div class="column">
+                    <input type='checkbox' name='thu' class='thu' value='Thursday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.thursday">
+                    <label class='checkb'>Thursday</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    <input type='checkbox' name='fri' class='fri' value='Friday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.friday">
+                    <label class='checkb'>Friday</label>
+                  </div>
+                  <div class="column">
+                    <input type='checkbox' name='sat' class='sat' value='Saturday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.saturday">
+                    <label class='checkb'>Saturday</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column">
+                    <input type='checkbox' name='sun' class='sun' value='Sunday' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].dayOfWeek.sunday">
+                    <label class='checkb'>Sunday</label>
+                  </div>
+                </div>
+              <div class="Odescription">
+                <label><strong>Description, if special (eg. on order, self service)</strong></label>
+                <input type='text' class='openingdescription' ng-model="hello.openingHoursSpecification[seasonsIndex].datetime[$index].description">
+
+              </div>
+              <a class="button expanded medium" type="button" ng-click='' class='remove'>Remove this day openings</a>
+              </div>
+
+              <a class="button expanded medium" type="button" ng-click='remove("openingHoursSpecification", $index)' class='remove'>Remove this Season openings</a>
+            </div>
+            <a class="button expanded medium" type="button" id="addElement" ng-click='addOpening("openingHoursSpecification")'>Add another Season openings</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- end openinghours -->
+
+      <div class="row margin-bottom">
+        <div class="footerD">
+          <div class="row">
+            <div class="columns">
+              <a class="button expanded medium back bEdit" ng-click="saveEdits(1)">Needs some more editing</a>
+            </div>
+            <div class="columns">
+              <a class="button expanded medium back bComplete" ng-click="saveEdits(2)">All Data Complete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  <div class="small-12 medium-6 large-8 columns">
+    <div class="loadWebsite" style="height: 1500px; width:  100%;"><iframe ng-src='{{tempurl}}' frameBorder='0' style='width:100%;height:100%'></iframe></div>
+  </div>
+</div>
+</div></div>
