@@ -24,7 +24,7 @@ var dbName = 'foodpointDB';
 //var connectionString = 'mongodb://localhost:27017/' + dbName;
 
 //Connection with Authentification
-var connectionString = 'mongodb://fpUser:1234@localhost:27017/' + dbName;
+var connectionString = 'mongodb://*username*:*password*@localhost:27017/' + dbName;
 
 mongoose.connect(connectionString);
 
