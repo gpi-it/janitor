@@ -6,6 +6,17 @@
   background-color: green;
 }
 
+.redText{
+  color: red;
+}
+
+.mainCounter{
+  background-color: #FFD300;
+  text-align: center;
+  padding: 6px;
+  height: 36px;
+}
+
 .dropHeader{
     background-color: blue;
 }
@@ -13,6 +24,31 @@
 .dropContent{
     background-color: lightblue;
 }
+
+.sectionButton{
+    background-color: #2199e8;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+
+}
+
+.blackBorder{
+  border: solid black 2px;
+}
+
+.status-button-0{
+  background-color: red;
+}
+
+.status-button-1{
+  background-color: #FFD300;
+}
+
+.status-button-2{
+  background-color: green;
+}
+
 /*
 .background{
   background-color: #2199e8

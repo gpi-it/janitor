@@ -1,6 +1,6 @@
 //$(document).foundation();
 
-var app = angular.module('volApp',['ngRoute','ngResource']);
+var app = angular.module('volApp',['ngRoute','ngResource', 'angular-datepicker']);
 
 app.config(function($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
@@ -17,22 +17,18 @@ app.config(function($httpProvider) {
     templateUrl:'tmp/search.html',
     controller:'searchCtl'
   })
-  .when('/compare/:idOne/:idTwo',{
-    templateUrl:'tmp/compare.html',
-    controller:'mainCtl'
-  })
   .when('/clean/:pointId',{
-    templateUrl:'tmp/clean.html',
+    templateUrl:'tmp/detail.html',
     controller:'detailCtl'
   })
   .when('/detail/:pointId',{
     templateUrl:'tmp/detail.html',
     controller:'detailCtl'
   })
-  .when('/edit/:pointId',{
-    template:'tmp/edit.html',
-    controller:'detailCtl'
-  })
+  .when('/thankyou',{
+      templateUrl:'tmp/thankyou.html',
+      controller:'mainCtl'
+    })
   .otherwise('/main');
 
   //$locationProvider.html5Mode(true);

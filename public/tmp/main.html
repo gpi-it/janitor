@@ -1,6 +1,6 @@
 <div class="background">
-    <div class="row">
-      <div class="small-12 medium-8 large-7 medium-centered columns">
+    <div class="row align-center">
+      <div class="small-12 medium-8 large-7 columns">
         <div class="row">
           <div class="small-12 medium-12 large-12 columns">
             <div class="menu">
@@ -10,9 +10,23 @@
                 </div>
 
                   <a class="expanded button medium menu_search menu_item" href="#/search">SEARCH / NEW</a><br>
-                  <a class="expanded button medium menu_clean menu_item" ng-click="clean()">CLEAN</a><br>
-                  <a class="expanded button medium menu_compare menu_item" href="#compare/56d6d94b5c945b100c1823ca/56d6d94b5c945b100c1823ca">COMPARE</a>
+                  <a class="expanded button medium menu_clean menu_item" ng-click="clean()">COMPLETE DATA</a><br>
+                  <p>
+                    <strong>SEARCH / NEW: </strong><br>
+                    Search for farms/markets/points of sale in our database. Add a new entry, if no entry exists.<br>
+                    This is useful for checking directly on the market, if the farmers present are already in our database.<br>
+                  </p>
+                  <p>
+                    <strong>COMPLETE DATA: </strong><br>
+                    You get a random entry from our database. The data can be completed by talking to the owner, looking at the website or googling.
+                  </p>
 
+                  <p><strong>Tipp:</strong> For completing the data it is recommended to have the cleaning page very small next to the webpage of the foodpoint.</p>
+                  <div class="mainCounter">
+                    <div class="" ng-show="count.showA && count.showC">
+                    {{count.complete}} out of {{count.all}} entries completed.<br>
+                  </div>
+                </div>
             </div>
           </div>
         </div>

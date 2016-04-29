@@ -1,60 +1,103 @@
-.menuD{
-position:fixed;
-top: 0px;
-width: 100%;
-background-color: #FFD300;;
+.menuD {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #FFD300;
+  z-index: 1;
+  border-bottom: solid black 2px;
 }
-
-.footerD{
-  position:fixed;
+.footerD {
+  position: fixed;
   bottom: 0px;
   width: 100%;
   padding-top: 15px;
   background-color: #FFD300;
+  z-index: 1;
+  border-top: solid black 2px;
 }
 
-.menuD .button{
+.menuD .button {
   margin: 0px;
 }
-
-.margin-top{
-  margin-top: 100px;
+.margin-top {
+  margin-top: 150px;
 }
 
-.margin-bottom{
-  margin-bottom: 150px;
+/*Small Screens*/
+@media only screen and (max-width: 40em) {
+  .margin-top {
+    margin-top: 150px;
+  }
+  .more-height {
+    height: 138px;
+  }
 }
 
-.item{
+/*Medium Screens*/
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .margin-top {
+    margin-top: 95px;
+  }
+  .more-height {
+    height: 114px;
+  }
+}
+
+/*Large Screens*/
+@media only screen and (min-width: 64.063em) {
+  .margin-top {
+    margin-top: 95px;
+  }
+  .more-height {
+    height: 114px;
+  }
+}
+
+.margin-bottom {
+  margin-bottom: 95px;
+}
+
+.marginTiming{
+  margin-bottom: 0px !important;
+}
+
+.marginSave-true {
+  margin-bottom: 250px !important;
+}
+.marginSave-false {
+  margin-bottom: 80px !important;
+}
+.item {
   background-color: white;
   padding: 10px;
   margin-bottom: 40px;
 }
-.item-nest{
+.item-nest {
   background-color: WhiteSmoke;
   margin-bottom: 20px;
   padding: 10px;
+  border-width: 2px;
+  border-color: red;
+    border-style: solid;
 }
-
-.item-nest-nest{
+.item-nest-nest {
   background-color: Gainsboro;
   margin-bottom: 20px;
   padding: 10px;
+  border-width: 2px;
+  border-color: green;
+  border-style: solid;
 }
-
-body{
+body {
   background-color: SkyBlue;
 }
-
-label{
-   text-transform: uppercase;
+label {
+  text-transform: uppercase;
 }
-
-.button{
+.button {
   text-transform: uppercase;
   font-weight: bold;
 }
-
-.row{
+.row {
   max-width: none;
 }
